@@ -15,9 +15,8 @@ export class GetCurrentUserEffect {
     ofType(getCurrentUserAction),
     switchMap(() => {
       const token = this.persistanceService.get('accessToken')
-      console.log('accessToken ', token);
-      
-      if(!token) {
+
+      if (!token) {
         return of(getCurrentUserFailureAction())
       }
 
